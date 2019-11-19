@@ -5,8 +5,6 @@ import "../css/public.css";
 
 const { Header, Content, Footer } = Layout;
 
-const Comp = ({ children, color }) => <span>{children}</span>;
-
 export default ({ children }) => {
   const [search, setSearch] = useState("");
   const [nickName, setNickName] = useState("HanChn");
@@ -37,9 +35,7 @@ export default ({ children }) => {
         </div>
       </Header>
       <Content>
-        <Container>
-          <Comp>{children}</Comp>
-        </Container>
+        <Comp>{children}</Comp>
       </Content>
       <Footer> Develop By HanChn </Footer>
       <style jsx>
