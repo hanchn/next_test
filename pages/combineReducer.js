@@ -1,5 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import ReduxThunk from "redux-thunk";
+import { createStore, combineReducers } from "redux";
 
 // 更改count
 
@@ -9,32 +8,15 @@ const initialCount = {
 };
 
 // action
-
 const ADD = "ADD";
-
-function add(num = 1) {
-  return {
-    type: "ADD",
-    num
-  };
-}
-
-function asyncAdd(num = 1) {
-  return dispatch => {
-    setTimeout(() => {
-      dispatch(add(num));
-    }, 1000);
-  };
-}
 
 // countReducer
 
 function countReducer(state = initialCount, action) {
-  let { type, num } = action;
-  switch (type) {
+  switch (action.type) {
     case ADD:
       return {
-        count: state.count + num
+        count: state.count + 1
       };
     default:
       return state;
@@ -70,24 +52,21 @@ const store = createStore(
     user: userReducer
   }),
   {
-    count: initialCount,
-    user: initialUser
-  },
-  applyMiddleware(ReduxThunk)
+    initialCount,
+    initialUser
+  }
 );
 
-store.subscribe(() => {
-  console.log("store.getState", store.getState());
-});
+console.log("store", store);
+console.log("store.getState", store.getState());
 
 const handleClick = function() {
-  console.log();
-  store.dispatch(asyncAdd());
+  store.dispatch({ type: "ADD" });
   console.log("store.getState2 ", store.getState());
 };
 
 export default () => (
   <div>
-    <button onClick={handleClick}> 点击我测试一下数据的变化 </button>{" "}
+    <button onClick={handleClick}>点击我测试一下数据的变化</button>
   </div>
 );
