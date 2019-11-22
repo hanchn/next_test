@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Button, Input, Layout, Icon, Avatar } from "antd";
+import { Input, Layout, Icon, Avatar } from "antd";
 import Container from "./Container";
 import "../css/public.css";
 
@@ -35,7 +35,7 @@ export default ({ children }) => {
         </div>
       </Header>
       <Content>
-        <Comp>{children}</Comp>
+        <Container>{children}</Container>
       </Content>
       <Footer> Develop By HanChn </Footer>
       <style jsx>

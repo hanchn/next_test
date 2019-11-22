@@ -1,6 +1,8 @@
 import App, { Container } from "next/app";
 import React from "react";
+import { Provider } from "react-redux";
 import "antd/dist/antd.css";
+import store from "../store";
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -10,7 +12,9 @@ export default class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    return {
+      pageProps
+    };
   }
 
   render() {
