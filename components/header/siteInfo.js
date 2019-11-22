@@ -1,7 +1,7 @@
 export default () => (
   <div className="site-info">
-    <h1 className="site-title"> 我的博客 </h1>
-    <span className="site-des"> 我的博客介绍 </span>
+    <h1 className="site-title"> 我的博客 </h1>{" "}
+    <span className="site-des"> 我的博客介绍 </span>{" "}
     <style jsx>
       {`
         .site-info {
@@ -16,6 +16,7 @@ export default () => (
           height: 40px;
           margin-bottom: 0px;
           color: #555;
+          font: bold 38px/1.12 "Times New Roman", Georgia, Times, sans-serif;
         }
 
         .site-info .site-des {

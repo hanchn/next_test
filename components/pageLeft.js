@@ -5,6 +5,7 @@ const style = {
   minHeight: 500,
   height: "auto",
   borderRight: "1px solid #ddd",
+  paddingRight: 40,
   marginRight: 40,
   marginTop: 40,
   marginBottom: 40,
@@ -13,6 +14,7 @@ const style = {
 
 export default ({ children = "", render = "" }) => (
   <Container render={render} style={style}>
-    {children}
+    {" "}
+    {children}{" "}
   </Container>
 );
