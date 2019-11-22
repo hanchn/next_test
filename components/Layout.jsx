@@ -1,6 +1,6 @@
 import Header from "./header";
 import Footer from "./footer";
-import Container from "./Container";
+import Container from "../utils/Container";
 
 export default ({ children = "" }) => {
   return (
