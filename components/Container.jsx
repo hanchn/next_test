@@ -1,11 +1,27 @@
-const style = {
-  width: "100%",
-  maxWidth: 1200,
-  marginLeft: "auto",
-  marginRight: "auto",
-  overflow: "hidden"
-};
+import { cloneElement } from "react";
 
-export default ({ children, comp: Comp = "div" }) => {
-  return <Comp style={style}>{children}</Comp>;
-};
+const styles = style =>
+  Object.assign(
+    {
+      width: 1030,
+      height: "auto",
+      marginLeft: "auto",
+      marginRight: "auto"
+    },
+    style
+  );
+
+export default ({
+  children = "",
+  comp: Comp = "div",
+  style = {},
+  renderer = ""
+}) =>
+  renderer == "" ? (
+    <Comp style={styles(style)}>{children}</Comp>
+  ) : (
+    cloneElement(renderer, {
+      style: styles(style),
+      children
+    })
+  );
